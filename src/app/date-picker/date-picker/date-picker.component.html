@@ -1,0 +1,31 @@
+<div *ngIf="!showDateTime">
+  <p-calendar
+  [(ngModel)]="rangeDates"
+  dateFormat="{{dateFormat}}"
+  selectionMode="range"
+  [readonlyInput]="true"
+  inputId="range"
+  [appendTo]="'body'"
+  placeholder="{{placeholderText}}"
+  #datepicker
+>  <!-- (onBlur)="(onBlur)" -->
+
+  <ng-template pTemplate="footer" *ngIf="showFooter">
+    <div class="footer-container" style="text-align: center;">
+      <p-button (click)="onApply()">Apply</p-button>
+      <p-button (click)="onClear()">Clear</p-button>
+    </div>
+  </ng-template>
+</p-calendar>
+</div>
+<div *ngIf="showDateTime">
+<p-calendar placeholder="End Time" [(ngModel)]="rangeDateTime" [showTime]="true"
+[showIcon]="true" [hideOnDateTimeSelect]=false inputId="icon" #calendar>
+
+<ng-template pTemplate="footer" *ngIf="showFooter">
+  <div class="footer-container" style="text-align: center;">
+    <p-button (click)="onApply()">OK</p-button>
+  </div>
+</ng-template>
+</p-calendar>
+</div>
